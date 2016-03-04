@@ -1,9 +1,10 @@
 ﻿using System;
+using Rabbit.Common.Interfaces.Models;
 
 namespace Rabbit.Common.Interfaces.Publishers
 {
-    public interface IQueuePublisher<in TMessage, out TErrorResponse>
+    public interface IQueuePublisher<TMessageBody>
     {
-        void Publish(TMessage message, Action<TErrorResponse> onFailure = null);
+        void Publish(RabbitMessage<TMessageBody> message, Action<FailedRabbitMessage<TMessageBody>> onFailure = null);
     }
 }

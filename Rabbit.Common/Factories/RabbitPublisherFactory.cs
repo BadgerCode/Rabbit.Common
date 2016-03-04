@@ -1,13 +1,12 @@
 ﻿using Rabbit.Common.Interfaces.Connection;
 using Rabbit.Common.Interfaces.Factories;
-using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Interfaces.Publishers;
 using Rabbit.Common.Publishers;
 using Rabbit.Common.Utilities;
 
 namespace Rabbit.Common.Factories
 {
-    public class RabbitPublisherFactory<TMessageBody> : IQueuePublisherFactory<RabbitMessage<TMessageBody>, FailedRabbitMessage<TMessageBody>>
+    public class RabbitPublisherFactory<TMessageBody> : IRabbitPublisherFactory<TMessageBody>
     {
         private readonly IRabbitConnection _connection;
         private readonly string _exchange;
@@ -18,7 +17,7 @@ namespace Rabbit.Common.Factories
             _exchange = exchange;
         }
 
-        public IQueuePublisher<RabbitMessage<TMessageBody>, FailedRabbitMessage<TMessageBody>> Create()
+        public IQueuePublisher<TMessageBody> Create()
         {
             return new RabbitQueuePublisher<TMessageBody>(_connection, _exchange, new RabbitHeaderEncoder(), new RabbitBodyEncoder<TMessageBody>());
         }

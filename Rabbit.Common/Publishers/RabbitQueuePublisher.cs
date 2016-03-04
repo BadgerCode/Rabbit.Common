@@ -8,7 +8,7 @@ using RabbitMQ.Client.Events;
 
 namespace Rabbit.Common.Publishers
 {
-    public class RabbitQueuePublisher<TMessageBody> : IQueuePublisher<RabbitMessage<TMessageBody>, FailedRabbitMessage<TMessageBody>>
+    public class RabbitQueuePublisher<TMessageBody> : IQueuePublisher<TMessageBody>
     {
         private readonly string _exchangeName;
         private readonly IRabbitHeaderEncoder _headerEncoder;
