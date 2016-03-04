@@ -4,6 +4,6 @@ namespace Rabbit.Common.Interfaces.Factories
 {
     public interface IRabbitPublisherFactory<TMessageBody>
     {
-        IQueuePublisher<TMessageBody> Create();
+        IRabbitPublisher<TMessageBody> Create();
     }
 }

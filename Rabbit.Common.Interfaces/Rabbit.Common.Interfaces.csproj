@@ -46,15 +46,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection\IRabbitConnection.cs" />
-    <Compile Include="Factories\IQueueConnectionManagerFactory.cs" />
+    <Compile Include="Factories\IRabbitConnectionFactory.cs" />
     <Compile Include="Consumers\IBlockingRabbitConsumer.cs" />
     <Compile Include="Factories\IBlockingRabbitConsumerFactory.cs" />
     <Compile Include="Factories\IRabbitPublisherFactory.cs" />
+    <Compile Include="Factories\IRabbitQueueSetupFactory.cs" />
     <Compile Include="Models\FailedRabbitMessage.cs" />
     <Compile Include="Models\RabbitConfig.cs" />
     <Compile Include="Models\RabbitMessage.cs" />
-    <Compile Include="Publishers\IQueuePublisher.cs" />
+    <Compile Include="Publishers\IRabbitPublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueSetup\IRabbitQueueSetup.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,15 +1,10 @@
 using System.Collections.Generic;
 using Rabbit.Common.Interfaces.Connection;
+using Rabbit.Common.Interfaces.QueueSetup;
 using Rabbit.Common.Utilities;
 
 namespace Rabbit.Common.QueueSetup
 {
-    public interface IRabbitQueueSetup
-    {
-        void CreateHeaderExchangeQueue(string exchangeName, string queueName, IDictionary<string, string> headerBindings, bool allHeaderBindingsMustBeTrue = true);
-        void CreateQueue(string exchangeName, string queueName);
-    }
-
     public class RabbitQueueSetup : IRabbitQueueSetup
     {
         private readonly IRabbitConnection _connection;

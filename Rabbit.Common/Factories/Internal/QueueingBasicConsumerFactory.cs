@@ -1,14 +1,14 @@
 using Rabbit.Common.Interfaces.Connection;
 using RabbitMQ.Client;
 
-namespace Rabbit.Common.Factories
+namespace Rabbit.Common.Factories.Internal
 {
-    public interface IQueueingBasicConsumerFactory
+    internal interface IQueueingBasicConsumerFactory
     {
         QueueingBasicConsumer Create(string queueName);
     }
 
-    public class QueueingBasicConsumerFactory : IQueueingBasicConsumerFactory
+    internal class QueueingBasicConsumerFactory : IQueueingBasicConsumerFactory
     {
         private readonly IRabbitConnection _rabbitConnection;
 

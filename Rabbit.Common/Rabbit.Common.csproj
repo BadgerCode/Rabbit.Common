@@ -51,12 +51,12 @@
   <ItemGroup>
     <Compile Include="Connection\RabbitConnection.cs" />
     <Compile Include="Consumers\BlockingRabbitConsumer.cs" />
-    <Compile Include="Factories\QueueingBasicConsumerFactory.cs" />
+    <Compile Include="Factories\Internal\QueueingBasicConsumerFactory.cs" />
     <Compile Include="Factories\BlockingRabbitConsumerFactory.cs" />
     <Compile Include="Factories\RabbitConnectionFactory.cs" />
     <Compile Include="Factories\RabbitPublisherFactory.cs" />
     <Compile Include="Factories\RabbitQueueSetupFactory.cs" />
-    <Compile Include="Publishers\RabbitQueuePublisher.cs" />
+    <Compile Include="Publishers\RabbitRabbitPublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueSetup\RabbitQueueSetup.cs" />
     <Compile Include="Testing\Consumers\TestMessageConsumer.cs" />

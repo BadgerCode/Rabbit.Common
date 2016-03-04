@@ -8,14 +8,14 @@ using RabbitMQ.Client.Events;
 
 namespace Rabbit.Common.Publishers
 {
-    public class RabbitQueuePublisher<TMessageBody> : IQueuePublisher<TMessageBody>
+    public class RabbitRabbitPublisher<TMessageBody> : IRabbitPublisher<TMessageBody>
     {
         private readonly string _exchangeName;
         private readonly IRabbitHeaderEncoder _headerEncoder;
         private readonly IRabbitBodyEncoder<TMessageBody> _bodyEncoder;
         private readonly IConnection _connection;
 
-        public RabbitQueuePublisher(IRabbitConnection connection, string exchangeName,
+        public RabbitRabbitPublisher(IRabbitConnection connection, string exchangeName,
                                     IRabbitHeaderEncoder headerEncoder, IRabbitBodyEncoder<TMessageBody> bodyEncoder)
         {
             _exchangeName = exchangeName;

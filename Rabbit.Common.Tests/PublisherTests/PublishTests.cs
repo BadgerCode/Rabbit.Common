@@ -58,7 +58,7 @@ namespace Rabbit.Common.Tests.PublisherTests
                 var bodyEncoder = new Mock<IRabbitBodyEncoder<TestMessageModel>>();
                 bodyEncoder.Setup(e => e.Encode(rabbitMessage.Body)).Returns(_encodedBody);
 
-                var publisher = new RabbitQueuePublisher<TestMessageModel>(connectionManager.Object, _exchangeName, headerEncoder.Object, bodyEncoder.Object );
+                var publisher = new RabbitRabbitPublisher<TestMessageModel>(connectionManager.Object, _exchangeName, headerEncoder.Object, bodyEncoder.Object );
                 publisher.Publish(rabbitMessage);
             }
 
@@ -118,7 +118,7 @@ namespace Rabbit.Common.Tests.PublisherTests
                 var bodyEncoder = new Mock<IRabbitBodyEncoder<TestMessageModel>>();
                 bodyEncoder.Setup(e => e.Decode(failedMessageBody)).Returns(_decodedFailedMessageBody);
 
-                var publisher = new RabbitQueuePublisher<TestMessageModel>(connectionManager.Object, "exchange name", headerEncoder.Object, bodyEncoder.Object);
+                var publisher = new RabbitRabbitPublisher<TestMessageModel>(connectionManager.Object, "exchange name", headerEncoder.Object, bodyEncoder.Object);
                 publisher.Publish(rabbitMessage, failedMessage =>
                 {
                     _failedMessage = failedMessage;

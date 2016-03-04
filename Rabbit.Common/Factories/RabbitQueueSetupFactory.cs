@@ -1,14 +1,11 @@
 ﻿using Rabbit.Common.Interfaces.Connection;
+using Rabbit.Common.Interfaces.Factories;
+using Rabbit.Common.Interfaces.QueueSetup;
 using Rabbit.Common.QueueSetup;
 using Rabbit.Common.Utilities;
 
 namespace Rabbit.Common.Factories
 {
-    public interface IRabbitQueueSetupFactory
-    {
-        RabbitQueueSetup Create();
-    }
-
     public class RabbitQueueSetupFactory : IRabbitQueueSetupFactory
     {
         private readonly IRabbitConnection _connection;
@@ -18,7 +15,7 @@ namespace Rabbit.Common.Factories
             _connection = connection;
         }
 
-        public RabbitQueueSetup Create()
+        public IRabbitQueueSetup Create()
         {
             return new RabbitQueueSetup(_connection, new RabbitHeaderEncoder());
         }

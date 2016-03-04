@@ -17,9 +17,9 @@ namespace Rabbit.Common.Factories
             _exchange = exchange;
         }
 
-        public IQueuePublisher<TMessageBody> Create()
+        public IRabbitPublisher<TMessageBody> Create()
         {
-            return new RabbitQueuePublisher<TMessageBody>(_connection, _exchange, new RabbitHeaderEncoder(), new RabbitBodyEncoder<TMessageBody>());
+            return new RabbitRabbitPublisher<TMessageBody>(_connection, _exchange, new RabbitHeaderEncoder(), new RabbitBodyEncoder<TMessageBody>());
         }
     }
 }

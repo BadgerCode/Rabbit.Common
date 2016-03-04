@@ -1,4 +1,5 @@
 using Rabbit.Common.Consumers;
+using Rabbit.Common.Factories.Internal;
 using Rabbit.Common.Interfaces.Connection;
 using Rabbit.Common.Interfaces.Consumers;
 using Rabbit.Common.Interfaces.Factories;

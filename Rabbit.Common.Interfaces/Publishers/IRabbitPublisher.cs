@@ -3,7 +3,7 @@ using Rabbit.Common.Interfaces.Models;
 
 namespace Rabbit.Common.Interfaces.Publishers
 {
-    public interface IQueuePublisher<TMessageBody>
+    public interface IRabbitPublisher<TMessageBody>
     {
         void Publish(RabbitMessage<TMessageBody> message, Action<FailedRabbitMessage<TMessageBody>> onFailure = null);
     }
