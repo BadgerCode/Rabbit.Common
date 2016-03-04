@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Rabbit.Common</id>
+    <version>1.0.0</version>
+    <authors>Esendex</authors>
+    <owners>Esendex</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Contains classes that build an abstraction on top of Rabbit to make it easier to use.</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>Esendex Rabbit Queue Queueing RabbitMQ Common</tags>
+    <dependencies>
+		<dependency id="RabbitMQ.Client" version="[3.5.7,)" />
+		<dependency id="Newtonsoft.Json" version="[8.0.2,)" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="bin\Release\Rabbit.Common.dll" target="lib\net450" />
+    <file src="bin\Release\Rabbit.Common.pdb" target="lib\net450" />
+    <file src="bin\Release\Rabbit.Common.Interfaces.dll" target="lib\net450" />
+    <file src="bin\Release\Rabbit.Common.Interfaces.pdb" target="lib\net450" />
+  </files>
+</package>

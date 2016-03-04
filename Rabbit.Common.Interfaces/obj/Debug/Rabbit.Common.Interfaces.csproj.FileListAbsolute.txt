@@ -1,0 +1,5 @@
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\bin\Debug\Rabbit.Common.Interfaces.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\bin\Debug\Rabbit.Common.Interfaces.pdb
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.csprojResolveAssemblyReference.cache
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.pdb

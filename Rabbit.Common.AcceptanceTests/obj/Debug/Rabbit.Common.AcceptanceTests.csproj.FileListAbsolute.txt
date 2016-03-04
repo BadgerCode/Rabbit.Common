@@ -1,0 +1,16 @@
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Rabbit.Common.AcceptanceTests.dll.config
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Rabbit.Common.AcceptanceTests.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Rabbit.Common.AcceptanceTests.pdb
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\nunit.framework.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Rabbit.Common.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Rabbit.Common.Interfaces.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\RabbitMQ.Client.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Newtonsoft.Json.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Rabbit.Common.Interfaces.pdb
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Rabbit.Common.pdb
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\nunit.framework.xml
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\RabbitMQ.Client.xml
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\bin\Debug\Newtonsoft.Json.xml
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\obj\Debug\Rabbit.Common.AcceptanceTests.csprojResolveAssemblyReference.cache
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\obj\Debug\Rabbit.Common.AcceptanceTests.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.AcceptanceTests\obj\Debug\Rabbit.Common.AcceptanceTests.pdb
