@@ -1,7 +1,7 @@
 ﻿using Rabbit.Common.Interfaces.Connection;
 using Rabbit.Common.Interfaces.Factories;
+using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Interfaces.Publishers;
-using Rabbit.Common.Models;
 using Rabbit.Common.Publishers;
 using Rabbit.Common.Utilities;
 

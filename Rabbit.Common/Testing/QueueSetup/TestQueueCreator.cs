@@ -16,7 +16,7 @@ namespace Rabbit.Common.Testing.QueueSetup
         public static void CreateHeaderExchangeQueue(RabbitConfig rabbitConfig, string exchangeName, string queueName, IDictionary<string, string> headerBindings, string routingKey,
                                                      bool allHeaderBindingsMustBeTrue = true)
         {
-            using (var channel = new RabbitConnectionFactory().Create(rabbitConfig).Get().CreateModel())
+            using (var channel = new RabbitConnectionFactory().CreateAndConnect(rabbitConfig).Get().CreateModel())
             {
                 channel.QueueDeclare(queueName, true, false, false, null);
 

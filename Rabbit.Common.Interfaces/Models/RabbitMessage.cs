@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Rabbit.Common.Models
+namespace Rabbit.Common.Interfaces.Models
 {
     public class RabbitMessage<TMessageBody>
     {

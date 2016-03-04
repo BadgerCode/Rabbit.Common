@@ -17,7 +17,7 @@ namespace Rabbit.Common.AcceptanceTests.ConnectionTests
             [OneTimeSetUp]
             public void WhenConnectingToRabbit()
             {
-                _connection = new RabbitConnectionFactory().Create(Configuration.RabbitConfig);
+                _connection = new RabbitConnectionFactory().CreateAndConnect(Configuration.RabbitConfig);
                 _result = _connection.Get();
             }
 

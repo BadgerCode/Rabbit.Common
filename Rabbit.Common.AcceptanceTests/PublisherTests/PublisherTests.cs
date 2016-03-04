@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
 using Rabbit.Common.Factories;
-using Rabbit.Common.Models;
+using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Testing.Consumers;
 
 namespace Rabbit.Common.AcceptanceTests.PublisherTests
@@ -62,7 +62,7 @@ namespace Rabbit.Common.AcceptanceTests.PublisherTests
 
                 var testConsumer = TestMessageConsumer<TestMessageModel>.CreateWithTempQueueAndStart(Configuration.RabbitConfig, Configuration.TestExchange, routingRules);
 
-                var connection = new RabbitConnectionFactory().Create(Configuration.RabbitConfig);
+                var connection = new RabbitConnectionFactory().CreateAndConnect(Configuration.RabbitConfig);
 
                 var publisher = new RabbitPublisherFactory<TestMessageModel>(connection, Configuration.TestExchange).Create();
                 
@@ -132,7 +132,7 @@ namespace Rabbit.Common.AcceptanceTests.PublisherTests
                 var routingRules = new Dictionary<string, string> { { "RoutingHeader", routingValue } };
                 var testConsumer = TestMessageConsumer<TestMessageModel>.CreateWithTempQueueAndStart(Configuration.RabbitConfig, Configuration.TestExchange, routingRules);
 
-                var publisherConnectionManager = new RabbitConnectionFactory().Create(Configuration.RabbitConfig);
+                var publisherConnectionManager = new RabbitConnectionFactory().CreateAndConnect(Configuration.RabbitConfig);
                 var firstPublisher = new RabbitPublisherFactory<TestMessageModel>(publisherConnectionManager, Configuration.TestExchange).Create();
                 var secondPublisher = new RabbitPublisherFactory<TestMessageModel>(publisherConnectionManager, Configuration.TestExchange).Create();
 

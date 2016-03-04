@@ -56,8 +56,6 @@
     <Compile Include="Factories\RabbitConnectionFactory.cs" />
     <Compile Include="Factories\RabbitPublisherFactory.cs" />
     <Compile Include="Factories\RabbitQueueSetupFactory.cs" />
-    <Compile Include="Models\FailedRabbitMessage.cs" />
-    <Compile Include="Models\RabbitMessage.cs" />
     <Compile Include="Publishers\RabbitQueuePublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueSetup\RabbitQueueSetup.cs" />
@@ -77,6 +75,7 @@
       <Name>Rabbit.Common.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,6 +5,6 @@ namespace Rabbit.Common.Interfaces.Factories
 {
     public interface IRabbitConnectionFactory
     {
-        IRabbitConnection Create(RabbitConfig rabbitConfig);
+        IRabbitConnection CreateAndConnect(RabbitConfig rabbitConfig);
     }
 }

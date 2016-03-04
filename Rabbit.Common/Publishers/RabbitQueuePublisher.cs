@@ -1,7 +1,7 @@
 ﻿using System;
 using Rabbit.Common.Interfaces.Connection;
+using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Interfaces.Publishers;
-using Rabbit.Common.Models;
 using Rabbit.Common.Utilities;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
 using Rabbit.Common.Factories;
-using Rabbit.Common.Models;
+using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Testing.Consumers;
 using Rabbit.Common.Testing.Publishers;
 using Rabbit.Common.Testing.QueueSetup;
@@ -52,7 +52,7 @@ namespace Rabbit.Common.AcceptanceTests.QueueSetupTests
 
                 _publishedMessages[1].Headers["BRoutingHeaderKey"] = "WrongValue";
 
-                var connection = new RabbitConnectionFactory().Create(Configuration.RabbitConfig);
+                var connection = new RabbitConnectionFactory().CreateAndConnect(Configuration.RabbitConfig);
 
                 var queueSetup = new RabbitQueueSetupFactory(connection).Create();
                 queueSetup.CreateHeaderExchangeQueue(Configuration.TestExchange, _testqueuename, routingRules, true);

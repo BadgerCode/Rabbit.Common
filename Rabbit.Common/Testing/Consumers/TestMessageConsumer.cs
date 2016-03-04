@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using Rabbit.Common.Factories;
 using Rabbit.Common.Interfaces.Models;
-using Rabbit.Common.Models;
 using Rabbit.Common.Utilities;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -69,7 +68,7 @@ namespace Rabbit.Common.Testing.Consumers
 
         private void Start()
         {
-            _connection = new RabbitConnectionFactory().Create(_rabbitConfig).Get();
+            _connection = new RabbitConnectionFactory().CreateAndConnect(_rabbitConfig).Get();
             _channel = _connection.CreateModel();
 
             var tempQueueName = _channel.QueueDeclare().QueueName;
@@ -84,7 +83,7 @@ namespace Rabbit.Common.Testing.Consumers
 
         private void StartWithExistingQueue()
         {
-            _connection = new RabbitConnectionFactory().Create(_rabbitConfig).Get();
+            _connection = new RabbitConnectionFactory().CreateAndConnect(_rabbitConfig).Get();
             _channel = _connection.CreateModel();
 
             var consumer = new EventingBasicConsumer(_channel);

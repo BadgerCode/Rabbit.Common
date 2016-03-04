@@ -7,7 +7,7 @@ namespace Rabbit.Common.Testing.QueueSetup
     {
         public static void RemoveQueue(RabbitConfig rabbitConfig, string queueName)
         {
-            using (var channel = new RabbitConnectionFactory().Create(rabbitConfig).Get().CreateModel())
+            using (var channel = new RabbitConnectionFactory().CreateAndConnect(rabbitConfig).Get().CreateModel())
             {
                 channel.QueueDelete(queueName);
             }

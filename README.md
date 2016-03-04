@@ -49,15 +49,14 @@ var rabbitConfig = new RabbitConfig
     ServiceName = "My.Application.Name"
 };
 
-var connection = new RabbitConnectionFactory()
-                     .Create(rabbitConfig);
 
-// You should .Connect before trying to use the connection.
 // If your connection details are invalid, this will throw an exception
-connection.Connect();
+var connection = new RabbitConnectionFactory()
+                     .CreateAndConnect(rabbitConfig);
+
 
 // You should .Abort this connection when you're done with it.
-// Otherwise, it will only abort when disposed
+// Otherwise, it will only abort when disposed (which could stop your program from exiting)
 ```
 <br>
 

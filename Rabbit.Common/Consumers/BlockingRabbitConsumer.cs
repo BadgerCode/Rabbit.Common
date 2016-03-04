@@ -1,14 +1,14 @@
 ﻿using System;
 using Rabbit.Common.Interfaces.Connection;
 using Rabbit.Common.Interfaces.Consumers;
-using Rabbit.Common.Models;
+using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Utilities;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
 namespace Rabbit.Common.Consumers
 {
-    public class BlockingRabbitConsumer<TMessageBody> : IBlockingQueueConsumer<RabbitMessage<TMessageBody>>
+    public class BlockingRabbitConsumer<TMessageBody> : IBlockingRabbitConsumer<TMessageBody>
     {
         private readonly IRabbitConnection _rabbitConnection;
         private readonly QueueingBasicConsumer _queueingBasicConsumer;

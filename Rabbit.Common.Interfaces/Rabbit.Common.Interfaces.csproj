@@ -47,10 +47,12 @@
   <ItemGroup>
     <Compile Include="Connection\IRabbitConnection.cs" />
     <Compile Include="Factories\IQueueConnectionManagerFactory.cs" />
-    <Compile Include="Consumers\IBlockingQueueConsumer.cs" />
+    <Compile Include="Consumers\IBlockingRabbitConsumer.cs" />
     <Compile Include="Factories\IBlockingQueueConsumerFactory.cs" />
     <Compile Include="Factories\IQueuePublisherFactory.cs" />
+    <Compile Include="Models\FailedRabbitMessage.cs" />
     <Compile Include="Models\RabbitConfig.cs" />
+    <Compile Include="Models\RabbitMessage.cs" />
     <Compile Include="Publishers\IQueuePublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

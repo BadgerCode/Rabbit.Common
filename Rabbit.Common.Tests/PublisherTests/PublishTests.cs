@@ -2,7 +2,7 @@
 using Moq;
 using NUnit.Framework;
 using Rabbit.Common.Interfaces.Connection;
-using Rabbit.Common.Models;
+using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Publishers;
 using Rabbit.Common.Utilities;
 using RabbitMQ.Client;

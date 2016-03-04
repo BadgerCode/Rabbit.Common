@@ -8,7 +8,7 @@ namespace Rabbit.Common.Factories
 {
     public class RabbitConnectionFactory : IRabbitConnectionFactory
     {
-        public IRabbitConnection Create(RabbitConfig rabbitConfig)
+        public IRabbitConnection CreateAndConnect(RabbitConfig rabbitConfig)
         {
             var connectionFactory = new ConnectionFactory
             {

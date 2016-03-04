@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Rabbit.Common.Factories;
-using Rabbit.Common.Models;
+using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Testing.Publishers;
 using Rabbit.Common.Testing.QueueSetup;
 
@@ -54,7 +54,7 @@ namespace Rabbit.Common.AcceptanceTests.ConsumerTests
                 TestQueueCreator.CreateHeaderExchangeQueue(Configuration.RabbitConfig, Configuration.TestExchange, _testQueueName, routingRules);
                 TestQueuePublisher.PublishMany(Configuration.RabbitConfig, Configuration.TestExchange, _testQueueMessages);
 
-                var connection = new RabbitConnectionFactory().Create(Configuration.RabbitConfig);
+                var connection = new RabbitConnectionFactory().CreateAndConnect(Configuration.RabbitConfig);
 
                 var consumerFactory = new BlockingRabbitConsumerFactory<TestMessageModel>(connection);
 
