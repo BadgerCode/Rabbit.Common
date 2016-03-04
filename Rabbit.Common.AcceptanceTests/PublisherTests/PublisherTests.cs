@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using NUnit.Framework;
 using Rabbit.Common.Factories;
@@ -38,7 +39,6 @@ namespace Rabbit.Common.AcceptanceTests.PublisherTests
                 var routingRules = new Dictionary<string, string> { { "RoutingHeader", "Value" + Guid.NewGuid() } };
 
                 _failedMessages = new List<FailedRabbitMessage<TestMessageModel>>();
-                _receivedMessages = new List<RabbitMessage<TestMessageModel>>();
 
                 _publishedMessages = new List<RabbitMessage<TestMessageModel>>
                 {
@@ -60,7 +60,7 @@ namespace Rabbit.Common.AcceptanceTests.PublisherTests
                     )
                 };
 
-                var testConsumer = TestMessageConsumer<TestMessageModel>.CreateWithTempQueueAndStart(Configuration.RabbitConfig, Configuration.TestExchange, routingRules);
+                var testConsumer = TestRabbitConsumer<TestMessageModel>.CreateWithTempQueueAndStart(Configuration.RabbitConfig, Configuration.TestExchange, routingRules);
 
                 var connection = new RabbitConnectionFactory().CreateAndConnect(Configuration.RabbitConfig);
 
@@ -74,8 +74,7 @@ namespace Rabbit.Common.AcceptanceTests.PublisherTests
                 // Give the system a little time to process the message (and possibly fail to route it)
                 Thread.Sleep(1000);
 
-                _receivedMessages.Add(testConsumer.TryGetMessage(TimeSpan.FromSeconds(1)));
-                _receivedMessages.Add(testConsumer.TryGetMessage(TimeSpan.FromSeconds(1)));
+                _receivedMessages = testConsumer.TryGetSeveralMessages(2, TimeSpan.FromSeconds(2)).ToList();
             }
 
             [Test]
@@ -130,7 +129,7 @@ namespace Rabbit.Common.AcceptanceTests.PublisherTests
                 };
 
                 var routingRules = new Dictionary<string, string> { { "RoutingHeader", routingValue } };
-                var testConsumer = TestMessageConsumer<TestMessageModel>.CreateWithTempQueueAndStart(Configuration.RabbitConfig, Configuration.TestExchange, routingRules);
+                var testConsumer = TestRabbitConsumer<TestMessageModel>.CreateWithTempQueueAndStart(Configuration.RabbitConfig, Configuration.TestExchange, routingRules);
 
                 var publisherConnectionManager = new RabbitConnectionFactory().CreateAndConnect(Configuration.RabbitConfig);
                 var firstPublisher = new RabbitPublisherFactory<TestMessageModel>(publisherConnectionManager, Configuration.TestExchange).Create();
@@ -142,8 +141,7 @@ namespace Rabbit.Common.AcceptanceTests.PublisherTests
                 // Give the system a little time to process the message (and possibly fail to route it)
                 Thread.Sleep(1000);
 
-                _receivedMessages.Add(testConsumer.TryGetMessage(TimeSpan.FromSeconds(1)));
-                _receivedMessages.Add(testConsumer.TryGetMessage(TimeSpan.FromSeconds(1)));
+                _receivedMessages = testConsumer.TryGetSeveralMessages(2, TimeSpan.FromSeconds(2)).ToList();
             }
 
             [Test]

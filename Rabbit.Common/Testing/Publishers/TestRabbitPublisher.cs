@@ -7,7 +7,7 @@ using RabbitMQ.Client.Events;
 
 namespace Rabbit.Common.Testing.Publishers
 {
-    public static class TestQueuePublisher
+    public static class TestRabbitPublisher
     {
         public static void Publish<TMessage>(RabbitConfig rabbitConfig, string exchangeName, RabbitMessage<TMessage> messages, 
                                              Action<FailedRabbitMessage<TMessage>> onFailure = null)

@@ -158,15 +158,10 @@ var queueCreator = new RabbitQueueSetupFactory().Create(connection);
 queueCreator.CreateHeaderExchangeQueue(exchangeName, queueName, queueHeaderBindings, mustMatchAllBindings);
 ```
 <br>
----
 
 
 Test Helpers
 ============
-
-
-
-----
 In these examples, I've assumed the existence of a **TestMessageModel** class.
 
 You can use whatever class you want to model the kinds of messages you'll be using in your tests.
@@ -191,8 +186,11 @@ var routingRules = new Dictionary<string, string> { { "RoutingHeader", "RoutingV
 var testConsumer = TestMessageConsumer<TestMessageModel>
                    .CreateWithTempQueueAndStart(rabbitConfig, "MyExchangeName", routingRules);
 
-// This will wait up to 5 seconds to read a message
-var message = testConsumer.TryGetMessage(TimeSpan.FromSeconds(5));
+var maxWaitTime = TimeSpan.FromSeconds(5);
+var message = testConsumer.TryGetMessage(maxWaitTime);
+
+// Make sure to dispose it
+testConsumer.Dispose();
 ```
 
 From an existing queue:
@@ -201,8 +199,15 @@ var rabbitConfig = new RabbitConfig( ... );
 var testConsumer = TestMessageConsumer<TestMessageModel>
                    .CreateForExistingQueueAndStart(rabbitConfig, "MyQueueName");
 
-// This will wait up to 5 seconds to read a message
-var message = testConsumer.TryGetMessage(TimeSpan.FromSeconds(5));
+var maxWaitTime = TimeSpan.FromSeconds(5);
+var message = testConsumer.TryGetMessage(maxWaitTime);
+
+var numberOfMessages = 5;
+var maxTotalWaitTime = TimeSpan.FromSeconds(10);
+var messages = testConsumer.TryGetSeveralMessages(numberOfMessages, maxTotalWaitTime);
+
+// Make sure to dispose it
+testConsumer.Dispose();
 ```
 <br>
 
@@ -212,6 +217,7 @@ You can optionally provide a function to deal with messages which fail to publis
 The failed message will have the following properties:
 * **Message**: A Rabbit message with the original **Headers** and **Body** you attempted to publish
 * **Response**: A Rabbit response with the **ReplyCode** and **ReplyText**
+
 ```C#
 var rabbitConfig = new RabbitConfig( ... );
 

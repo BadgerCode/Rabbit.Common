@@ -61,14 +61,14 @@ namespace Rabbit.Common.AcceptanceTests.QueueSetupTests
                 _failedMessages = new List<FailedRabbitMessage<TestMessageModel>>();
                 var failedMessageHandle = new AutoResetEvent(false);
 
-                TestQueuePublisher.PublishMany(Configuration.RabbitConfig, Configuration.TestExchange, _publishedMessages,
+                TestRabbitPublisher.PublishMany(Configuration.RabbitConfig, Configuration.TestExchange, _publishedMessages,
                     failedMessage =>
                     {
                         _failedMessages.Add(failedMessage);
                         failedMessageHandle.Set();
                     });
 
-                var consumer = TestMessageConsumer<TestMessageModel>.CreateForExistingQueueAndStart(Configuration.RabbitConfig, _testqueuename);
+                var consumer = TestRabbitConsumer<TestMessageModel>.CreateForExistingQueueAndStart(Configuration.RabbitConfig, _testqueuename);
                 var receivedMessage = consumer.TryGetMessage(TimeSpan.FromSeconds(50));
                 if (receivedMessage != null)
                 {

@@ -52,7 +52,7 @@ namespace Rabbit.Common.AcceptanceTests.ConsumerTests
                 _dequeuedMessages = new Queue<RabbitMessage<TestMessageModel>>();
 
                 TestQueueCreator.CreateHeaderExchangeQueue(Configuration.RabbitConfig, Configuration.TestExchange, _testQueueName, routingRules);
-                TestQueuePublisher.PublishMany(Configuration.RabbitConfig, Configuration.TestExchange, _testQueueMessages);
+                TestRabbitPublisher.PublishMany(Configuration.RabbitConfig, Configuration.TestExchange, _testQueueMessages);
 
                 var connection = new RabbitConnectionFactory().CreateAndConnect(Configuration.RabbitConfig);
 

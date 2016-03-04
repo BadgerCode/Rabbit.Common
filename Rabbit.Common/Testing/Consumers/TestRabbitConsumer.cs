@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using Rabbit.Common.Factories;
 using Rabbit.Common.Interfaces.Models;
@@ -9,7 +10,7 @@ using RabbitMQ.Client.Events;
 
 namespace Rabbit.Common.Testing.Consumers
 {
-    public class TestMessageConsumer<TMessage> : IDisposable
+    public class TestRabbitConsumer<TMessage> : IDisposable
     {
         private readonly RabbitConfig _rabbitConfig;
         private readonly string _existingQueueName;
@@ -23,26 +24,26 @@ namespace Rabbit.Common.Testing.Consumers
         private readonly RabbitHeaderEncoder _headerEncoder;
         private readonly RabbitBodyEncoder<TMessage> _bodyEncoder;
 
-        public static TestMessageConsumer<TMessage> CreateWithTempQueueAndStart(RabbitConfig rabbitConfig, string testExchange, IDictionary<string, string> routingRules)
+        public static TestRabbitConsumer<TMessage> CreateWithTempQueueAndStart(RabbitConfig rabbitConfig, string testExchange, IDictionary<string, string> routingRules)
         {
             return CreateWithTempQueueAndStart(rabbitConfig, testExchange, routingRules, string.Empty);
         }
 
-        public static TestMessageConsumer<TMessage> CreateWithTempQueueAndStart(RabbitConfig rabbitConfig, string testExchange, IDictionary<string, string> routingRules, string routingKey)
+        public static TestRabbitConsumer<TMessage> CreateWithTempQueueAndStart(RabbitConfig rabbitConfig, string testExchange, IDictionary<string, string> routingRules, string routingKey)
         {
-            var consumer = new TestMessageConsumer<TMessage>(rabbitConfig, testExchange, routingRules, routingKey);
+            var consumer = new TestRabbitConsumer<TMessage>(rabbitConfig, testExchange, routingRules, routingKey);
             consumer.Start();
             return consumer;
         }
 
-        public static TestMessageConsumer<TMessage> CreateForExistingQueueAndStart(RabbitConfig rabbitConfig, string queueName)
+        public static TestRabbitConsumer<TMessage> CreateForExistingQueueAndStart(RabbitConfig rabbitConfig, string queueName)
         {
-            var consumer = new TestMessageConsumer<TMessage>(rabbitConfig, queueName);
+            var consumer = new TestRabbitConsumer<TMessage>(rabbitConfig, queueName);
             consumer.StartWithExistingQueue();
             return consumer;
         }
 
-        private TestMessageConsumer(RabbitConfig rabbitConfig, string testExchange, IDictionary<string, string> routingRules, string routingKey)
+        private TestRabbitConsumer(RabbitConfig rabbitConfig, string testExchange, IDictionary<string, string> routingRules, string routingKey)
         {
             _rabbitConfig = rabbitConfig;
             _testExchange = testExchange;
@@ -55,7 +56,7 @@ namespace Rabbit.Common.Testing.Consumers
             _bodyEncoder = new RabbitBodyEncoder<TMessage>();
         }
 
-        private TestMessageConsumer(RabbitConfig rabbitConfig, string existingQueueName)
+        private TestRabbitConsumer(RabbitConfig rabbitConfig, string existingQueueName)
         {
             _rabbitConfig = rabbitConfig;
             _existingQueueName = existingQueueName;
@@ -99,6 +100,27 @@ namespace Rabbit.Common.Testing.Consumers
             _receivedMessages.Enqueue(new RabbitMessage<TMessage>(headers, body));
 
             _waitHandle.Set();
+        }
+
+        public IEnumerable<RabbitMessage<TMessage>> TryGetSeveralMessages(int messageCount, TimeSpan maxWaitTime)
+        {
+            var messages = new List<RabbitMessage<TMessage>>();
+
+            var timer = new Stopwatch();
+            timer.Start();
+
+            while(messages.Count != messageCount && timer.ElapsedMilliseconds <= maxWaitTime.TotalMilliseconds)
+            {
+                var message = TryGetMessage(maxWaitTime);
+                if (message != null)
+                {
+                    messages.Add(message);
+                }
+            }
+
+            timer.Stop();
+
+            return messages;
         }
 
         public RabbitMessage<TMessage> TryGetMessage(TimeSpan maxWaitTime)
