@@ -1,4 +1,4 @@
-﻿namespace Rabbit.Common.Models
+﻿namespace Rabbit.Common.Interfaces.Models
 {
     public class RabbitConfig
     {

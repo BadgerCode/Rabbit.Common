@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
-using Rabbit.Common.Connection;
 using Rabbit.Common.Factories;
 using Rabbit.Common.Models;
 using Rabbit.Common.Testing.Consumers;

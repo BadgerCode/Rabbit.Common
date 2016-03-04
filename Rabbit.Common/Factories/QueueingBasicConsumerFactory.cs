@@ -1,4 +1,4 @@
-using Rabbit.Common.Connection;
+using Rabbit.Common.Interfaces.Connection;
 using RabbitMQ.Client;
 
 namespace Rabbit.Common.Factories
@@ -10,9 +10,9 @@ namespace Rabbit.Common.Factories
 
     public class QueueingBasicConsumerFactory : IQueueingBasicConsumerFactory
     {
-        private readonly RabbitConnection _rabbitConnection;
+        private readonly IRabbitConnection _rabbitConnection;
 
-        public QueueingBasicConsumerFactory(RabbitConnection rabbitConnection)
+        public QueueingBasicConsumerFactory(IRabbitConnection rabbitConnection)
         {
             _rabbitConnection = rabbitConnection;
         }

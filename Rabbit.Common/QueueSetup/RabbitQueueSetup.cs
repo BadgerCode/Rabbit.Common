@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Rabbit.Common.Connection;
+using Rabbit.Common.Interfaces.Connection;
 using Rabbit.Common.Utilities;
 
 namespace Rabbit.Common.QueueSetup
@@ -12,10 +12,10 @@ namespace Rabbit.Common.QueueSetup
 
     public class RabbitQueueSetup : IRabbitQueueSetup
     {
-        private readonly RabbitConnection _connection;
+        private readonly IRabbitConnection _connection;
         private readonly IRabbitHeaderEncoder _rabbitHeaderEncoder;
 
-        public RabbitQueueSetup(RabbitConnection connection, IRabbitHeaderEncoder rabbitHeaderEncoder)
+        public RabbitQueueSetup(IRabbitConnection connection, IRabbitHeaderEncoder rabbitHeaderEncoder)
         {
             _connection = connection;
             _rabbitHeaderEncoder = rabbitHeaderEncoder;

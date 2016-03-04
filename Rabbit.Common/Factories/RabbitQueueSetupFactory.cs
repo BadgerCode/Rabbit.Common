@@ -1,4 +1,4 @@
-﻿using Rabbit.Common.Connection;
+﻿using Rabbit.Common.Interfaces.Connection;
 using Rabbit.Common.QueueSetup;
 using Rabbit.Common.Utilities;
 
@@ -11,9 +11,9 @@ namespace Rabbit.Common.Factories
 
     public class RabbitQueueSetupFactory : IRabbitQueueSetupFactory
     {
-        private readonly RabbitConnection _connection;
+        private readonly IRabbitConnection _connection;
 
-        public RabbitQueueSetupFactory(RabbitConnection connection)
+        public RabbitQueueSetupFactory(IRabbitConnection connection)
         {
             _connection = connection;
         }

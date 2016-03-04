@@ -1,5 +1,5 @@
 ﻿using System;
-using Rabbit.Common.Connection;
+using Rabbit.Common.Interfaces.Connection;
 using Rabbit.Common.Interfaces.Consumers;
 using Rabbit.Common.Models;
 using Rabbit.Common.Utilities;
@@ -10,12 +10,12 @@ namespace Rabbit.Common.Consumers
 {
     public class BlockingRabbitConsumer<TMessageBody> : IBlockingQueueConsumer<RabbitMessage<TMessageBody>>
     {
-        private readonly RabbitConnection _rabbitConnection;
+        private readonly IRabbitConnection _rabbitConnection;
         private readonly QueueingBasicConsumer _queueingBasicConsumer;
         private readonly IRabbitHeaderEncoder _headerEncoder;
         private readonly IRabbitBodyEncoder<TMessageBody> _bodyEncoder;
 
-        public BlockingRabbitConsumer(RabbitConnection rabbitConnection, QueueingBasicConsumer queueingBasicConsumer, 
+        public BlockingRabbitConsumer(IRabbitConnection rabbitConnection, QueueingBasicConsumer queueingBasicConsumer, 
                                       IRabbitHeaderEncoder headerEncoder, IRabbitBodyEncoder<TMessageBody> bodyEncoder)
         {
             _rabbitConnection = rabbitConnection;

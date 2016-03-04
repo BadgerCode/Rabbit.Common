@@ -50,14 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection\RabbitConnection.cs" />
-    <Compile Include="Factories\RabbitConnectionManagerFactory.cs" />
     <Compile Include="Consumers\BlockingRabbitConsumer.cs" />
     <Compile Include="Factories\QueueingBasicConsumerFactory.cs" />
     <Compile Include="Factories\BlockingRabbitConsumerFactory.cs" />
+    <Compile Include="Factories\RabbitConnectionFactory.cs" />
     <Compile Include="Factories\RabbitPublisherFactory.cs" />
     <Compile Include="Factories\RabbitQueueSetupFactory.cs" />
     <Compile Include="Models\FailedRabbitMessage.cs" />
-    <Compile Include="Models\RabbitConfig.cs" />
     <Compile Include="Models\RabbitMessage.cs" />
     <Compile Include="Publishers\RabbitQueuePublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

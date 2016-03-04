@@ -1,7 +1,10 @@
+using Rabbit.Common.Interfaces.Connection;
+using Rabbit.Common.Interfaces.Models;
+
 namespace Rabbit.Common.Interfaces.Factories
 {
-    public interface IQueueConnectionFactory<out TConnectionManager, in TConfiguration>
+    public interface IRabbitConnectionFactory
     {
-        TConnectionManager Create(TConfiguration config);
+        IRabbitConnection Create(RabbitConfig rabbitConfig);
     }
 }

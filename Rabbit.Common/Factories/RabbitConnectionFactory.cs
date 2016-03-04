@@ -1,13 +1,14 @@
 ﻿using Rabbit.Common.Connection;
+using Rabbit.Common.Interfaces.Connection;
 using Rabbit.Common.Interfaces.Factories;
-using Rabbit.Common.Models;
+using Rabbit.Common.Interfaces.Models;
 using RabbitMQ.Client;
 
 namespace Rabbit.Common.Factories
 {
-    public class RabbitConnectionFactory : IQueueConnectionFactory<RabbitConnection, RabbitConfig>
+    public class RabbitConnectionFactory : IRabbitConnectionFactory
     {
-        public RabbitConnection Create(RabbitConfig rabbitConfig)
+        public IRabbitConnection Create(RabbitConfig rabbitConfig)
         {
             var connectionFactory = new ConnectionFactory
             {
@@ -19,7 +20,10 @@ namespace Rabbit.Common.Factories
                 ClientProperties = { { "originating_service", rabbitConfig.ServiceName } }
             };
 
-            return new RabbitConnection(connectionFactory);
+            var connection = new RabbitConnection(connectionFactory);
+            connection.Get();
+
+            return connection;
         }
     }
 }

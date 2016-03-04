@@ -1,6 +1,5 @@
-﻿using Rabbit.Common.Connection;
-using Rabbit.Common.Factories;
-using Rabbit.Common.Models;
+﻿using Rabbit.Common.Factories;
+using Rabbit.Common.Interfaces.Models;
 
 namespace Rabbit.Common.Testing.QueueSetup
 {
@@ -8,8 +7,7 @@ namespace Rabbit.Common.Testing.QueueSetup
     {
         public static void RemoveQueue(RabbitConfig rabbitConfig, string queueName)
         {
-            using (var connectionManager = new RabbitConnectionFactory().Create(rabbitConfig))
-            using (var channel = connectionManager.Get().CreateModel())
+            using (var channel = new RabbitConnectionFactory().Create(rabbitConfig).Get().CreateModel())
             {
                 channel.QueueDelete(queueName);
             }

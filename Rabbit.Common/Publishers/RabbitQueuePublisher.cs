@@ -15,7 +15,7 @@ namespace Rabbit.Common.Publishers
         private readonly IRabbitBodyEncoder<TMessageBody> _bodyEncoder;
         private readonly IConnection _connection;
 
-        public RabbitQueuePublisher(IQueueConnection<IConnection> connection, string exchangeName,
+        public RabbitQueuePublisher(IRabbitConnection connection, string exchangeName,
                                     IRabbitHeaderEncoder headerEncoder, IRabbitBodyEncoder<TMessageBody> bodyEncoder)
         {
             _exchangeName = exchangeName;

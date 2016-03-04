@@ -1,5 +1,5 @@
 ﻿using System.Configuration;
-using Rabbit.Common.Models;
+using Rabbit.Common.Interfaces.Models;
 
 namespace Rabbit.Common.AcceptanceTests
 {

@@ -3,3 +3,10 @@ C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\bin\Debug\Rabbit.Common.I
 C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.csprojResolveAssemblyReference.cache
 C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.dll
 C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.pdb
+C:\Users\Michael\Documents\Projects\Rabbit.Common\Rabbit.Common.Interfaces\bin\Debug\Rabbit.Common.Interfaces.dll
+C:\Users\Michael\Documents\Projects\Rabbit.Common\Rabbit.Common.Interfaces\bin\Debug\Rabbit.Common.Interfaces.pdb
+C:\Users\Michael\Documents\Projects\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Documents\Projects\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.dll
+C:\Users\Michael\Documents\Projects\Rabbit.Common\Rabbit.Common.Interfaces\obj\Debug\Rabbit.Common.Interfaces.pdb
+C:\Users\Michael\Documents\Projects\Rabbit.Common\Rabbit.Common.Interfaces\bin\Debug\RabbitMQ.Client.dll
+C:\Users\Michael\Documents\Projects\Rabbit.Common\Rabbit.Common.Interfaces\bin\Debug\RabbitMQ.Client.xml

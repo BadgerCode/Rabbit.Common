@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
 using Rabbit.Common.Interfaces.Connection;
@@ -40,7 +39,7 @@ namespace Rabbit.Common.Tests.PublisherTests
 
                 _exchangeName = "exchange name";
 
-                var connectionManager = new Mock<IQueueConnection<IConnection>>();
+                var connectionManager = new Mock<IRabbitConnection>();
                 var connection = new Mock<IConnection>();
                 _channel = new Mock<IModel>();
                 _basicProperties = new Mock<IBasicProperties>();
@@ -101,7 +100,7 @@ namespace Rabbit.Common.Tests.PublisherTests
                 _decodedFailedMessageHeaders = new Dictionary<string, string> { { "decodedheaderkey", "decodedheadervalue" } };
                 _decodedFailedMessageBody = new TestMessageModel();
 
-                var connectionManager = new Mock<IQueueConnection<IConnection>>();
+                var connectionManager = new Mock<IRabbitConnection>();
                 var connection = new Mock<IConnection>();
                 var channel = new Mock<IModel>();
                 connectionManager.Setup(m => m.Get()).Returns(connection.Object);

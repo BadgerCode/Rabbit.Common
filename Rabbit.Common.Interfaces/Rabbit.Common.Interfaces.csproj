@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RabbitMQ.Client, Version=3.5.7.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.3.5.7\lib\net40\RabbitMQ.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,11 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection\IQueueConnection.cs" />
+    <Compile Include="Connection\IRabbitConnection.cs" />
     <Compile Include="Factories\IQueueConnectionManagerFactory.cs" />
     <Compile Include="Consumers\IBlockingQueueConsumer.cs" />
     <Compile Include="Factories\IBlockingQueueConsumerFactory.cs" />
     <Compile Include="Factories\IQueuePublisherFactory.cs" />
+    <Compile Include="Models\RabbitConfig.cs" />
     <Compile Include="Publishers\IQueuePublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

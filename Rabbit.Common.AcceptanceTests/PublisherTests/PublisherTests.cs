@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
-using Rabbit.Common.Connection;
 using Rabbit.Common.Factories;
 using Rabbit.Common.Models;
 using Rabbit.Common.Testing.Consumers;
@@ -64,7 +63,6 @@ namespace Rabbit.Common.AcceptanceTests.PublisherTests
                 var testConsumer = TestMessageConsumer<TestMessageModel>.CreateWithTempQueueAndStart(Configuration.RabbitConfig, Configuration.TestExchange, routingRules);
 
                 var connection = new RabbitConnectionFactory().Create(Configuration.RabbitConfig);
-                connection.Connect();
 
                 var publisher = new RabbitPublisherFactory<TestMessageModel>(connection, Configuration.TestExchange).Create();
                 

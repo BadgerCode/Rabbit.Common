@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
-using Rabbit.Common.Connection;
 using Rabbit.Common.Factories;
+using Rabbit.Common.Interfaces.Connection;
 using RabbitMQ.Client;
 
 namespace Rabbit.Common.AcceptanceTests.ConnectionTests
@@ -12,13 +12,12 @@ namespace Rabbit.Common.AcceptanceTests.ConnectionTests
         public class GivenAConnectionAttempt
         {
             private IConnection _result;
-            private RabbitConnection _connection;
+            private IRabbitConnection _connection;
 
             [OneTimeSetUp]
             public void WhenConnectingToRabbit()
             {
                 _connection = new RabbitConnectionFactory().Create(Configuration.RabbitConfig);
-                _connection.Connect();
                 _result = _connection.Get();
             }
 

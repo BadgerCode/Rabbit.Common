@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
-using Rabbit.Common.Connection;
 using Rabbit.Common.Factories;
+using Rabbit.Common.Interfaces.Models;
 using Rabbit.Common.Models;
 using Rabbit.Common.Utilities;
 using RabbitMQ.Client;

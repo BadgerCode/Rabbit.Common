@@ -3,22 +3,19 @@ using RabbitMQ.Client;
 
 namespace Rabbit.Common.Connection
 {
-    public class RabbitConnection : IQueueConnection<IConnection>
+    public class RabbitConnection : IRabbitConnection
     {
         private readonly IConnectionFactory _connectionFactory;
-        private IConnection _connection;
         private readonly object _connectionLock = new object();
         private readonly object _abortLock = new object();
 
+        private IConnection _connection;
+        
         public RabbitConnection(IConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;
         }
-
-        public void Connect()
-        {
-            Get();
-        }
+        
 
         public IConnection Get()
         {

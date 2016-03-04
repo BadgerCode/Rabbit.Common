@@ -55,7 +55,6 @@ namespace Rabbit.Common.AcceptanceTests.ConsumerTests
                 TestQueuePublisher.PublishMany(Configuration.RabbitConfig, Configuration.TestExchange, _testQueueMessages);
 
                 var connection = new RabbitConnectionFactory().Create(Configuration.RabbitConfig);
-                connection.Connect();
 
                 var consumerFactory = new BlockingRabbitConsumerFactory<TestMessageModel>(connection);
 
