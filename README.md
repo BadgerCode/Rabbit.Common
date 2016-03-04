@@ -3,9 +3,10 @@ Rabbit Common
 * **Minimum RabbitMQ .NET Client**: 3.5.7
 * **Minimum (tested) RabbitMQ Server**: 3.3.5
 
-*A library for common Rabbit components.*
+*A C# (.net) library for common RabbitMQ components.*
 
-![Rabbit](http://i.imgur.com/085asU3.jpg)
+![Rabbit](http://i.imgur.com/085asU3.jpg)<br>
+*[Image Source](http://ahorseofcourseandrabbitstoo.blogspot.co.uk/2012/03/pictures-of-horses-and-rabbits.html)*
 
 **Features**
 * Makes connections resilient to race conditions
