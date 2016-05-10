@@ -67,7 +67,7 @@ namespace Rabbit.Common.AcceptanceTests.ConsumerTests
                 });
                 consumingTask.Start();
 
-                Task.WaitAll(new[] { consumingTask }, TimeSpan.FromSeconds(100000));
+                Task.WaitAll(new[] { consumingTask }, TimeSpan.FromSeconds(10));
             }
 
             [Test]
