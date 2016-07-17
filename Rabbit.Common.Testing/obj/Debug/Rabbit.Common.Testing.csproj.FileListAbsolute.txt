@@ -1,0 +1,13 @@
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\Rabbit.Common.Testing.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\Rabbit.Common.Testing.pdb
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\Rabbit.Common.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\Rabbit.Common.Interfaces.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\RabbitMQ.Client.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\Newtonsoft.Json.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\Rabbit.Common.Interfaces.pdb
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\Rabbit.Common.pdb
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\RabbitMQ.Client.xml
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\bin\Debug\Newtonsoft.Json.xml
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\obj\Debug\Rabbit.Common.Testing.csprojResolveAssemblyReference.cache
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\obj\Debug\Rabbit.Common.Testing.dll
+C:\dev\apps.mvc\Rabbit.Common\Rabbit.Common.Testing\obj\Debug\Rabbit.Common.Testing.pdb
